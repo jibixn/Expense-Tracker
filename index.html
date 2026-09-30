@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Expense Tracker</h1>
+      <p>Keep track of your income and expenses</p>
+    </header>
+
+
+    <section class="summary-container" aria-label="Financial Summary">
+      <div class="summary-card">
+        <h3>Total Income</h3>
+        <div id="totalIncome" class="amount income">+$0.00</div>
+      </div>
+      <div class="summary-card">
+        <h3>Total Expenses</h3>
+        <div id="totalExpenses" class="amount expense">-$0.00</div>
+      </div>
+      <div class="summary-card">
+        <h3>Current Balance</h3>
+        <div id="currentBalance" class="amount balance">$0.00</div>
+      </div>
+    </section>
+
+    <div class="main-layout">
+
+      <section class="card" aria-label="Transaction Form">
+        <h2 id="formTitle">Add Transaction</h2>
+        <form id="transactionForm" novalidate>
+
+          <div class="form-group">
+            <label>Transaction Type</label>
+            <div class="type-selector">
+              <label class="type-option">
+                <input type="radio" name="transactionType" value="expense" checked>
+                <span>Expense</span>
+              </label>
+              <label class="type-option">
+                <input type="radio" name="transactionType" value="income">
+                <span>Income</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Amount ($)</label>
+            <input type="number" id="amount" class="form-control" step="0.01" min="0.01" placeholder="0.00" required>
+            <div id="amountError" class="error-msg">Please enter a valid amount greater than 0.</div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" class="form-control" required>
+
+            </select>
+            <div id="categoryError" class="error-msg">Please select a category.</div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" class="form-control" required>
+            <div id="dateError" class="error-msg">Please choose a valid date.</div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" class="form-control" placeholder="e.g., Grocery shopping, Salary" required>
+            <div id="descError" class="error-msg">Please enter a description.</div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary">Add Transaction</button>
+          <button type="button" id="cancelEditBtn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+        </form>
+      </section>
+
+
+      <section class="card" aria-label="Category-wise Expense Chart">
+        <h2>Expense by Category</h2>
+        <div class="chart-wrapper">
+          <canvas id="categoryChartCanvas" width="220" height="220"></canvas>
+          <div id="chartLegend" class="chart-legend">
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <section class="transactions-section" aria-label="Transactions List">
+      <div class="section-header">
+        <h2>Transactions</h2>
+        <div class="filters-row">
+
+          <select id="filterType" class="filter-select" aria-label="Filter by Type">
+            <option value="all">All Types</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+
+
+          <select id="filterCategory" class="filter-select" aria-label="Filter by Category">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsTableBody">
+
+          </tbody>
+        </table>
+        <div id="emptyMessage" class="empty-text" style="display: none;">
+          No transactions match your current filters.
+        </div>
+      </div>
+    </section>
+
+
+    <section class="monthly-section" aria-label="Monthly Expense Summary">
+      <h2>Monthly Summary</h2>
+      <div id="monthlySummaryContainer" class="monthly-grid">
+
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
