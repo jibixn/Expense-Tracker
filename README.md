@@ -23,4 +23,5 @@ A simple Expense Tracker web application built using **HTML, CSS and JavaScript*
 ### Option 1: Direct in Browser
 Open `index.html` in any web browser (Google Chrome, Firefox, Safari, Edge).
 
-
+### Option 2: Vercel
+Visit https://expense-tracker-eta-neon-36.vercel.app/
