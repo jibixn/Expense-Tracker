@@ -100,46 +100,7 @@ function loadTransactions() {
   } else {
     
     transactions = [
-      {
-        id: '1',
-        type: 'income',
-        amount: 3200.0,
-        category: 'Salary',
-        date: '2026-09-01',
-        description: 'Monthly Salary',
-      },
-      {
-        id: '2',
-        type: 'expense',
-        amount: 1100.0,
-        category: 'Housing & Rent',
-        date: '2026-09-02',
-        description: 'Apartment Rent',
-      },
-      {
-        id: '3',
-        type: 'expense',
-        amount: 85.5,
-        category: 'Food & Groceries',
-        date: '2026-09-05',
-        description: 'Weekly Groceries',
-      },
-      {
-        id: '4',
-        type: 'expense',
-        amount: 45.0,
-        category: 'Utilities',
-        date: '2026-09-10',
-        description: 'Electric Bill',
-      },
-      {
-        id: '5',
-        type: 'income',
-        amount: 400.0,
-        category: 'Freelance',
-        date: '2026-09-15',
-        description: 'Freelance Project',
-      },
+      
     ];
     saveTransactions();
   }
