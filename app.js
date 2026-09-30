@@ -69,9 +69,9 @@ const chartLegend = document.getElementById('chartLegend');
 
 
 function formatCurrency(amount) {
-  return '$' + Math.abs(amount).toLocaleString('en-US', {
+  return '₹' + Math.abs(amount).toLocaleString('en-IN', {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
 }
 
